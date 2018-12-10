@@ -4,11 +4,11 @@ var config = {
     coinUnitPlaces: 12,
     txMinConfirms: 10,         // corresponds to CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE in Monero
     txCoinbaseMinConfirms: 60, // corresponds to CRYPTONOTE_MINED_MONEY_UNLOCK_WINDOW in Monero
-    coinSymbol: 'XMR',
-    openAliasPrefix: "xmr",
-    coinName: 'Monero',
-    coinUriPrefix: 'monero:',
-    addressPrefix: 18,
+    coinSymbol: 'FRTY',
+    openAliasPrefix: "frty",
+    coinName: '42',
+    coinUriPrefix: '42:',
+    addressPrefix: 0x1cbd67,
     integratedAddressPrefix: 19,
     subAddressPrefix: 42,
     addressPrefixTestnet: 53,
@@ -20,7 +20,7 @@ var config = {
     feePerKB: new JSBigInt('2000000000'),//20^10 - for testnet its not used, as fee is dynamic.
     dustThreshold: new JSBigInt('1000000000'),//10^10 used for choosing outputs/change - we decompose all the way down if the receiver wants now regardless of threshold
     txChargeRatio: 0.5,
-    defaultMixin: 4, // minimum mixin for hardfork v5
+    defaultMixin: 11, // minimum mixin for hardfork v5
     txChargeAddress: '',
     idleTimeout: 30,
     idleWarningDuration: 20,
