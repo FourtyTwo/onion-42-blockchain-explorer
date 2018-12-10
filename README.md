@@ -1,20 +1,20 @@
-# Onion Monero Blockchain Explorer
+# Onion 42 Blockchain Explorer
 
-Currently available Monero blockchain explorers have several limitations which are of
-special importance to privacy-oriented users:
+Based upon the very robust and well made [Monero Onion Blockchain Explorer](https://github.com/moneroexamples/onion-monero-blockchain-explorer)
 
- - they use JavaScript,
- - have images which might be used for [cookieless tracking](http://lucb1e.com/rp/cookielesscookies/),
- - track users activates through google analytics,
- - are closed sourced,
- - are not available as hidden services,
- - do not support Monero testnet nor stagenet networks,
- - have limited JSON API.
+   Features:
 
+ - No Javascript usage
+ - No images which can be used for [cookieless tracking](http://lucb1e.com/rp/cookielesscookies/),
+ - Can't track users via Google analytics,
+ - Is open source,
+ - Can be deployed as a hidden service and is Onion Friendly,
+ - Will support 42 testnet and stagenet in the future,
+ - Robust JSON RPC API
 
-In this example, these limitations are addressed by development of
-an Onion Monero Blockchain Explorer. The example not only shows how to use
-Monero C++ libraries, but also demonstrates how to use:
+The 42 Blockchain explorer is ready to use with the core codebase,
+and gives examples on how to use the Monero/42 codebase as well
+as examples on using the following C++ libraries:
 
  - [crow](https://github.com/ipkn/crow) - C++ micro web framework
  - [mstch](https://github.com/no1msd/mstch) - C++ {{mustache}} templates
@@ -23,47 +23,16 @@ Monero C++ libraries, but also demonstrates how to use:
 
 ## Explorer hosts
 
-Tor users:
+Currently the only host is [explorer.coin42.co](http://explorer.coin42.co), let us know if you own a blockexplorer and want to be added to the list!
 
- - [http://dvwae436pd7nt4bc.onion](http://dvwae436pd7nt4bc.onion) (Front-end templates are [maintained by @suhz](https://github.com/suhz/onion-monero-blockchain-explorer/tree/moneroexplorer.com/src/templates)).
+## Onion 42 Blockchain Explorer features (extended)
 
-Clearnet versions:
- - [https://xmrchain.net/](https://xmrchain.net/) - https enabled, most popular and very stable.
- - [https://MoneroExplorer.com/](https://moneroexplorer.com/) - nice looking one, https enabled.
- - [https://monerohash.com/explorer/](https://monerohash.com/explorer/) - nice looking one, https enabled.
- - [http://explore.MoneroWorld.com](http://explore.moneroworld.com) - same as the second one.
- - [http://monerochain.com/](http://monerochain.com/) - JSON API based, multiple nodes.   
- - [https://blox.minexmr.com/](https://blox.minexmr.com/) - - https enabled.
-
-Testnet version:
-
- - [https://testnet.xmrchain.com/](https://testnet.xmrchain.com/) - https enabled.
- - [https://explorer.monero-otc.com/](https://explorer.monero-otc.com/) - https enabled.
-
-Stagenet version:
-
- - [https://stagenet.xmrchain.net/](https://stagenet.xmrchain.net/)
- - [http://162.210.173.150:8083/](http://162.210.173.150:8083/)
-
-i2p users (main Monero network):
-
- - [http://7o4gezpkye6ekibhgpkg7v626ze4idsirapufzrefkdysa6zxhha.b32.i2p/](http://7o4gezpkye6ekibhgpkg7v626ze4idsirapufzrefkdysa6zxhha.b32.i2p/)
-
-Alternative block explorers:
-
-- [http://moneroblocks.info](http://moneroblocks.info/)
-- [https://monerovision.com](https://monerovision.com)
-- [http://chainradar.com](http://chainradar.com/xmr/blocks)
-
-
-## Onion Monero Blockchain Explorer features
-
-The key features of the Onion Monero Blockchain Explorer are:
+The key features of the Onion 42 Blockchain Explorer are:
 
  - no cookies, no web analytics trackers, no images,
  - by default no JavaScript, but can be enabled for client side decoding and proving transactions,
  - open sourced,
- - made fully in C++,
+ - made fully in C++, (C++ master race yo)
  - showing encrypted payments ID,
  - showing ring signatures,
  - showing transaction extra field,
@@ -80,22 +49,15 @@ The key features of the Onion Monero Blockchain Explorer are:
  - decoding outputs and proving txs sent to sub-address.
 
 
-## Development branch
-
-Current development branch:
-
- - https://github.com/moneroexamples/onion-monero-blockchain-explorer/tree/devel
-
-
 
 ## Compilation on Ubuntu 16.04/18.04
 
-##### Compile latest Monero version (0.13)
+##### Compile latest 42 version (0.13)
 
 Download and compile recent Monero into your home folder:
 
 ```bash
-# first install monero dependecines
+# first install 42 dependecines
 sudo apt update
 
 sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound-dev graphviz doxygen libunwind8-dev pkg-config libssl-dev libcurl4-openssl-dev libgtest-dev libreadline-dev libzmq3-dev libsodium-dev libhidapi-dev libhidapi-libusb0
@@ -103,9 +65,9 @@ sudo apt install git build-essential cmake libboost-all-dev miniupnpc libunbound
 # go to home folder
 cd ~
 
-git clone --recursive https://github.com/monero-project/monero
+git clone --recursive https://github.com/FourtyTwo/42
 
-cd monero/
+cd 42/
 
 
 USE_SINGLE_BUILDDIR=1 make
@@ -113,18 +75,18 @@ USE_SINGLE_BUILDDIR=1 make
 
 ##### Compile and run the explorer
 
-Once the Monero is compiles, the explorer can be downloaded and compiled
+Once the 42 is compiles, the explorer can be downloaded and compiled
 as follows:
 
 ```bash
-# go to home folder if still in ~/monero
+# go to home folder if still in ~/42
 cd ~
 
 # download the source code
-git clone https://github.com/moneroexamples/onion-monero-blockchain-explorer.git
+git clone https://github.com/FourtyTwo/onion-42-blockchain-explorer.git
 
 # enter the downloaded sourced code folder
-cd onion-monero-blockchain-explorer
+cd onion-42-blockchain-explorer
 
 # make a build folder and enter it
 mkdir build && cd build
@@ -133,7 +95,7 @@ mkdir build && cd build
 cmake ..
 
 # altearnatively can use: cmake -DMONERO_DIR=/path/to/monero_folder ..
-# if monero is not in ~/monero
+# if 42 is not in ~/monero
 #
 # also can build with ASAN (sanitizers), for example
 # cmake -DSANITIZE_ADDRESS=On ..
@@ -170,7 +132,7 @@ Go to your browser: http://127.0.0.1:8081
 ## The explorer's command line options
 
 ```
-xmrblocks, Onion Monero Blockchain Explorer:
+xmrblocks, Onion 42 Blockchain Explorer:
   -h [ --help ] [=arg(=1)] (=0)         produce help message
   -t [ --testnet ] [=arg(=1)] (=0)      use testnet blockchain
   -s [ --stagenet ] [=arg(=1)] (=0)     use stagenet blockchain
@@ -234,9 +196,9 @@ alias xmrblockstestnet='~/onion-monero-blockchain-explorer/build/xmrblocks -t --
 
 These are aliases similar to those used for http://139.162.32.245:8081/ and http://139.162.32.245:8082/, respectively.
 
-## Enable Monero emission
+## Enable 42 emission
 
-Obtaining current Monero emission amount is not straight forward. Thus, by default it is
+Obtaining current 42 emission amount is not straight forward. Thus, by default it is
 disabled. To enable it use `--enable-emission-monitor` flag, e.g.,
 
 
